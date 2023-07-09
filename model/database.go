@@ -34,7 +34,7 @@ func SetDBClient() {
 		password,
 	)
 
-	DB, err = gorm.Open(postgres.Open(dsn))
+	DB, err = gorm.Open(postgres.Open(dsn), &gorm.Config{})
 	DB.AutoMigrate(User{})
 	if err != nil {
 		fmt.Println(err)
